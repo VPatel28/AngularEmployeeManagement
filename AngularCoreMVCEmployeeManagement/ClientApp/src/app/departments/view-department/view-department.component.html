@@ -1,0 +1,17 @@
+<div class='table' *ngIf="model">
+  <!--<div *ngFor="let user of UserList">-->
+  <table>
+
+    <tr>
+      <td>ID :</td>
+      <td> {{ model.id }}</td>
+    </tr>
+
+    <tr>
+      <td> Name </td>
+      <td> {{ model.deptName }}</td>
+    </tr>
+  </table>
+  <button type="button" [routerLink]="['/departments']">Back to List</button> 
+
+</div>

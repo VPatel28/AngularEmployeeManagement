@@ -1,0 +1,18 @@
+
+<div class="offset-sm-1">
+  <div style="text-align:right" class="offset-sm-1">
+    <a [routerLink]="" (click)="Logout()">Logout</a>
+  </div>
+  <div class='table' *ngIf="UserList">
+    <!--<div *ngFor="let user of UserList">-->
+    <h5> Welcome User   {{ UserList.empName }}</h5>
+    <div *ngIf="UserList.role  ==='HR'">
+      <a [routerLink]="['/employees']">View Employees</a> |
+      <a [routerLink]="['/departments']">View Departments</a>
+    </div>
+    <div *ngIf="UserList.role ==='Employee'">
+      <a [routerLink]="['/employees']">View Employees</a> |
+    </div>
+    <!--</div>-->
+  </div>
+</div>

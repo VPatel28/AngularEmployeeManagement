@@ -1,0 +1,37 @@
+<div class="offset-sm-2">
+  <h1>Employee Data</h1>
+  <table class='table' *ngIf="DeptList">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dept of DeptList">
+        <td>{{ dept.id }}</td>
+        <td>{{ dept.deptName }}</td>
+        <td>
+        <td>
+          <a [routerLink]="['edit', dept.id]">Edit</a> |
+          <a [routerLink]="['view', dept.id]">View</a> |
+          <a [routerLink]="" (click)="delete(dept.id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="offset-sm-1">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a [routerLink]="['add']">Add Department</a> |
+          </td>
+          <td>
+            <button type="button" [routerLink]="['/']" class="alert-link">Back to Home Page</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

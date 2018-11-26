@@ -1,0 +1,51 @@
+
+<div>
+  <h1>Employee Data</h1>
+  <table class='table' *ngIf="empList && empList.length>0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact No</th>
+        <th>Birth Date</th>
+        <th>Education</th>
+        <th>Department Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of empList">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.empName }}</td>
+        <td>{{ emp.address }}</td>
+        <td>{{ emp.phoneNo }}</td>
+        <td>{{ emp.birthDate }}</td>
+        <td>{{ emp.education }}</td>
+        <td>{{ emp.department.deptName }}</td>
+        <td>{{ emp.email }}</td>
+        <td>
+        <td>
+          <a [routerLink]="['view', emp.id]">View</a> |
+          <div *ngIf="userRole  ==='HR'">
+            <a [routerLink]="['edit', emp.id]">Edit</a> |
+            <a [routerLink]="" (click)="delete(emp.id)">Delete</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <tr>
+
+        <td *ngIf="userRole  ==='HR'">
+          <a [routerLink]="['add']">Add Employee</a>
+        </td>
+        <td>
+          <button type="button" [routerLink]="['/']">Back to Home Page</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
